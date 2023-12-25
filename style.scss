@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@1,6..12,600&family=Silkscreen&display=swap');
+$width:   20px;
+$height:  30px;
+$spacing: 50px; 
+$spread: 1.6px;
+$light-off-opacity: 0.4;
+html{
+    overflow: hidden;
+}
+body{
+    background: #000;
+}
+
+.lightrope{
+    text-align: center;
+    white-space:nowrap;
+    overflow: hidden;
+    position:absolute;
+    z-index: 1;
+    margin: -22px 0 0 0;
+    padding: 0;
+    pointer-events: none;
+    width: 100%;
+  
+
+    li{
+        position: relative;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: block;
+        width: $width;
+        height: $height;
+        border-radius: 50%;
+        margin: $spacing/2;
+        display: inline-block;
+        background: rgba(0,247,165,1);
+    
+        animation-name: flash-1;
+        animation-duration: 1s;
+        &:nth-child(4n) {
+         
+         
+          animation-name: flash-2;
+          animation-duration: 1.4s;
+        }
+        &:nth-child(4n-1) {
+         
+       
+          animation-name: flash-3;
+          animation-duration: 1.6s;
+        }
+        &:nth-child(4n-2) {
+         
+           
+            animation-name: flash-4;
+            animation-duration: 1.2s;
+          }
+      
+        &:nth-child(3n+2) {
+          animation-duration: 0.6s;
+        }
+        &:before {
+          content: "";
+          position: absolute;
+          background: #351b1b;
+          width: ($width - 2);
+          height: $height/3;
+          border-radius: 3px;
+          top: (0 - ($height/6));
+          left: 1px;
+        }
+        &:after {
+          content: "";
+          top: (0 - $height/5);
+        //   left: $width - 3;
+          position: absolute;
+          width: $spacing+13;
+          height: ($height/4 );
+          border-bottom: solid #383838 2px;
+          border-radius: 40%;
+        }
+        &:last-child:after {
+          content: none;
+        } //no rope after last bulb
+        &:first-child {
+          margin-left: 10px;
+        }
+      }
+    }
+    @keyframes flash-1 { 
+        0%, 100% { background: rgba(0,247,165,1);
+        box-shadow: 0px $height/6 $width*2 $spread rgba(0,247,165,1);} 
+        50% { background: rgba(0,247,165,$light-off-opacity);
+        box-shadow: 0px $height/6 $width*2 $spread rgba(0,247,165,0.2);}
+    }
+    @keyframes flash-2 { 
+        0%, 100% { background: rgba(0,255,255,1);
+        box-shadow: 0px $height/6 $width*2 $spread rgba(0,255,255,1);} 
+        50% { background: rgba(0,255,255,$light-off-opacity);
+        box-shadow: 0px $height/6 $width*2 $spread rgba(0,255,255,0.2);}
+    }
+    @keyframes flash-3 { 
+        0%, 100% { background: rgba(247,0,148,1);
+        box-shadow: 0px $height/6 $width*2 $spread rgba(247,0,148,1);} 
+        50% { background: rgba(247,0,148,$light-off-opacity);
+        box-shadow: 0px $height/6 $width*2 $spread rgba(247,0,148,0.2);}
+    }
+    @keyframes flash-4 { 
+        0%, 100% { background: rgb(189, 202, 94);
+        box-shadow: 0px $height/6 $width*2 $spread rgb(189, 202, 94);} 
+        50% { background: rgba(200,211,96,$light-off-opacity);
+        box-shadow: 0px $height/6 $width*2 $spread rgba(200, 211, 96, 0.2);}
+    }
+    
+ 
+  .title{
+    animation:color-animation 3s linear infinite;
+  }
+ 
+  .one{
+    --color-1: #DF8453;
+    --color-2: #dff64d;
+    --color-3: #ef6a68;
+  }
+  
+  .two{
+    --color-3: #ecb744;
+    --color-2: #8be3d9;
+    --color-1: #7dd745;
+   
+  }
+  
+  .three{
+    --color-1: #ACCFCB;
+    --color-2: #ee7775;
+    --color-3: #7fded3;
+   
+  }
+  
+  .four {
+    --color-1: #37b7ee;
+    --color-2: #f79058;
+    --color-3: #03e478;
+    font-family: 'Silkscreen', sans-serif;
+    font-size: 3vw;
+
+  }
+
+  @keyframes color-animation{
+    0%    {color:var(--color-1)}
+    32%   {color: var(--color-1)}
+    33%   {color: var(--color-2)}
+    65%   {color: var(--color-2)}
+    66%   {color: var(--color-3)}
+    99%   {color: var(--color-3)}
+    100%  {color: var(--color-1)}
+  }
+
+  .container {
+    display: grid;
+    place-items: center;  
+    text-align: center;
+    height: 100vh
+   
+  }
+  
+  .text {
+    
+
+    font-weight: 600;
+    font-size: 2.5vw;
+    font-family: 'Nunito Sans', sans-serif;
+
+  
+  }
